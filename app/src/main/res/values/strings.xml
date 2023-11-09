@@ -96,6 +96,15 @@
     <string name="euicc_info_tca_version_example">2.2.2</string>
     <string name="euicc_info_pki_ids_title">PKI IDs</string>
     <string name="euicc_info_pki_ids_example">C0BC70BA36929D43B467FF57570530E57AB8FCD8\nF54172BDF98A95D65CBEB88A38A1C11D800A85C3</string>
+    <string name="euicc_info_euicc_firmware_version_title">eUICC Firmware Version</string>
+    <string name="euicc_info_euicc_firmware_version_example">4.6.0</string>
+    <string name="euicc_info_euicc_sas_accreditation_number_title">sas Acreditation Number</string>
+    <string name="euicc_info_euicc_sas_accreditation_number_example">GI-BA-UP-0000</string>
+    <string name="euicc_info_euicc_info_forbidden_profile_policy_rules_title">forbiddenProfilePolicyRules</string>
+    <string name="euicc_info_euicc_info_forbidden_profile_policy_rules_example">11</string>
+    <string name="euicc_info_ext_card_resource_title">Extended Card Resource Information</string>
+    <string name="euicc_info_ext_card_resource_example">8101008204000B967A8304000022AA</string>
+    <string name="euicc_info_ext_card_resource_memory_example">Free Non-volatile Memory: %1$s KB\nFree Volatile Memory: %2$s KB</string>
 
     <!-- Scan Barcode Activity-->
     <string name="scan_qr_title">Download Profile</string>
@@ -188,6 +197,12 @@
     <string name="error_wifi_not_connected_heading">Connect to a Wi-Fi network</string>
     <string name="error_wifi_not_connected_body">You can\'t add a profile unless you first connect to a Wi-Fi network.</string>
     <string name="error_wifi_not_connected_positive_button">Connect to Wi-Fi network</string>
+    <string name="error_network_disabled_heading">Network Connectivity Is Unavailable</string>
+    <string name="error_network_disabled_body">Please connect to an available network to proceed with eSIM profile download.</string>
+    <string name="error_network_disabled_positive_button">Network Setting</string>
+    <string name="error_network_not_connected_heading">Connect to network</string>
+    <string name="error_network_not_connected_body">Please connect to an available network to proceed with eSIM profile download.</string>
+    <string name="error_network_not_connected_positive_button">Network Setting</string>
     <string name="error_back_press_disabled_heading">Back Press Disabled</string>
     <string name="error_back_press_disabled_body">The back button is disabled while downloading.</string>
     <string name="error_camera_permission_request_finally_denied_header">Camera permission finally denied!</string>
