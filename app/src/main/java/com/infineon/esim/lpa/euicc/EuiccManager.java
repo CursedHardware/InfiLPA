@@ -227,6 +227,7 @@ public class EuiccManager implements EuiccInterfaceStatusChangeHandler {
         TaskRunner.ExceptionHandler exceptionHandler = e -> {
             statusAndEventHandler.onError(new Error("Exception during initializing eUICC", e.getMessage()));
             statusAndEventHandler.onStatusChange(new AsyncActionStatus(ActionStatus.OPENING_EUICC_CONNECTION_FINISHED));
+            selectEuicc(Preferences.getNoEuiccName());
             onEuiccInterfaceDisconnected(null);
         };
 
@@ -271,8 +272,11 @@ public class EuiccManager implements EuiccInterfaceStatusChangeHandler {
 
         // Enable initialisation of fallback eUICC after eUICC list refresh
         enableFallbackEuicc = true;
-
-        startRefreshingEuiccList();
+        if (interfaceTag == null) {
+            Log.error(TAG,"interfaceTAG is null");
+        } else {
+            startRefreshingEuiccList();
+        }
     }
 
     @Override
@@ -292,6 +296,7 @@ public class EuiccManager implements EuiccInterfaceStatusChangeHandler {
         this.euiccList.postValue(euiccList);
 
         if(euiccList.isEmpty()) {
+            Log.verbose(TAG, "eUICC list is Empty");
             selectEuicc(Preferences.getNoEuiccName());
         } else {
             Log.verbose(TAG, "Current eUICC connection: " + currentEuicc.getValue());
