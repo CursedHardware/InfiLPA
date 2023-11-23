@@ -69,6 +69,7 @@ public class EuiccManager implements EuiccInterfaceStatusChangeHandler {
 
     private String switchEuiccInterface;
     private boolean enableFallbackEuicc;
+    private boolean refreshEuiccRetry;
 
     public EuiccManager(Context context,
                         StatusAndEventHandler statusAndEventHandler) {
@@ -272,9 +273,14 @@ public class EuiccManager implements EuiccInterfaceStatusChangeHandler {
 
         // Enable initialisation of fallback eUICC after eUICC list refresh
         enableFallbackEuicc = true;
+
         if (interfaceTag == null) {
             Log.error(TAG,"interfaceTAG is null");
-        } else {
+            refreshEuiccRetry = !refreshEuiccRetry;
+        }
+
+        if (interfaceTag != null | refreshEuiccRetry) {
+            if (refreshEuiccRetry) Log.debug(TAG,"Retry when interfaceTAG is null");
             startRefreshingEuiccList();
         }
     }
