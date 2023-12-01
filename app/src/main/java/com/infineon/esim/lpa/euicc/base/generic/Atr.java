@@ -56,7 +56,7 @@ public class Atr {
                 }
             }
 
-            boolean support_euicc = false;
+            boolean isEuicc = false;
             int i = 1;
             int pn = 1;
 
@@ -85,8 +85,8 @@ public class Atr {
                     int T = TDi & 0xF;
                     int TBi = atr[i] & 0xFF;
 
-                    if (pn > 2 && T == 15 && TBi == 0x82) {
-                        support_euicc = true;
+                    if (pn > 2 && T == 15 && (TBi == 0x82 | TBi == 0x83)) {
+                        isEuicc = true;
                         Log.verbose(TAG,"Found euicc support but not in list");
                     }
 //                    Log.verbose(TAG,"TBi: " + String.format("%02X", TBi));
@@ -105,7 +105,7 @@ public class Atr {
                 }
                 else break;
             }
-            if (support_euicc) return true;
+            if (isEuicc) return true;
         }
         return false;
     }
